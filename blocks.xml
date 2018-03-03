@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<palette>
+	
+	<!-- old blocks -->
+	
+	<block	tag="drawRotatedRect"
+		spec="%0 rectangle at center: ( x: %1 y: %2 ) with ( w: %3 h: %4 angle: %5 )"
+		code="DrawRotRect.drawRotatedRect(g, ~, ~, ~, ~, ~, ~);"
+		help="Draws/Fills a rotated rectangle to the screen."
+		type="action"
+		color="cyan"
+		hidden="true"
+		returns="void">
+		<fields>
+			<dropdown order="0">
+				<choices>
+					<c text="draw" code="false"/>
+					<c text="fill" code="true"/>
+				</choices>				
+			</dropdown>
+			<number order="1"/>
+			<number order="2"/>
+			<number order="3"/>
+			<number order="4"/>
+			<number order="5"/>
+		</fields>
+	</block>
+
+	<block	tag="drawEllipse"
+		spec="%0 ellipse at center: ( x: %1 y: %2 ) with ( w: %3 h: %4 angle: %5 )"
+		code="DrawCircles.drawEllipse(g, ~, ~, ~, ~, ~, ~);"
+		help="Draws/Fills an ellipse to the screen."
+		type="action"
+		color="cyan"
+		hidden="true"
+		returns="void">
+		<fields>
+			<dropdown order="0">
+				<choices>
+					<c text="draw" code="false"/>
+					<c text="fill" code="true"/>
+				</choices>				
+			</dropdown>
+			<number order="1"/>
+			<number order="2"/>
+			<number order="3"/>
+			<number order="4"/>
+			<number order="5"/>
+		</fields>
+	</block>
+	
+	<block	tag="drawArc"
+		spec="draw arc at center: ( x: %0 y: %1 ) with ( radius: %4 start: %2 end: %3 )"
+		code="DrawCircles.drawArc(g, ~, ~, ~, ~, ~);"
+		help="Draws an arc to the screen."
+		type="action"
+		color="cyan"
+		hidden="true"
+		returns="void">
+		<fields>
+			<number order="0"/>
+			<number order="1"/>
+			<number order="2"/>
+			<number order="3"/>
+			<number order="4"/>
+		</fields>
+	</block>
+	
+	<block	tag="addArcToPolygon"
+		spec="add arc at center: ( x: %0 y: %1 ) with ( radius: %4 start: %2 end: %3 ) to polygon"
+		code="DrawCircles.addArc(g, ~, ~, ~, ~, ~);"
+		help="Adds an arc to a polygon."
+		type="action"
+		color="cyan"
+		hidden="true"
+		returns="void">
+		<fields>
+			<number order="0"/>
+			<number order="1"/>
+			<number order="2"/>
+			<number order="3"/>
+			<number order="4"/>
+		</fields>
+	</block>
+	
+	<!-- real blocks -->
+
+	<block	tag="drawPolygon"
+		spec="%0 %3 at center: ( x: %1 y: %2 ) with ( radius: %4 angle: %5 )"
+		code="DrawPolygons.drawPolygon(g, ~, ~, ~, Std.int(~), ~, ~);"
+		help="Draws/Fills a shape to the screen."
+		type="action"
+		color="cyan"
+		returns="void">
+		<fields>
+			<dropdown order="0">
+				<choices>
+					<c text="draw" code="false"/>
+					<c text="fill" code="true"/>
+				</choices>				
+			</dropdown>
+			<number order="1"/>
+			<number order="2"/>
+			<dropdown order="3">
+				<choices>
+					<c text="triangle" code="3"/>
+					<c text="square" code="4"/>
+					<c text="pentagon" code="5"/>
+					<c text="hexagon" code="6"/>
+					<c text="heptagon" code="7"/>
+					<c text="octagon" code="8"/>
+					<c text="nonagon" code="9"/>
+					<c text="decagon" code="10"/>
+					<c text="dodecagon" code="12"/>
+				</choices>				
+			</dropdown>
+			<number order="4"/>
+			<number order="5"/>
+		</fields>
+	</block>
+
+	<block	tag="drawPolygonRotated"
+		spec="%0 polygon at center: ( x: %1 y: %2 ) with ( sides: %3 radius: %4 angle: %5 )"
+		code="DrawPolygons.drawPolygon(g, ~, ~, ~, Std.int(~), ~, ~);"
+		help="Draws/Fills a rotated shape to the screen."
+		type="action"
+		color="cyan"
+		returns="void">
+		<fields>
+			<dropdown order="0">
+				<choices>
+					<c text="draw" code="false"/>
+					<c text="fill" code="true"/>
+				</choices>				
+			</dropdown>
+			<number order="1"/>
+			<number order="2"/>
+			<number order="3"/>
+			<number order="4"/>
+			<number order="5"/>
+		</fields>
+	</block>
+
+
+	<block	tag="drawStar"
+		spec="%0 star at center: ( x: %1 y: %2 ) with ( spokes: %3 radii: %4 %5 angle: %6 )"
+		code="DrawPolygons.drawStar(g, ~, ~, ~, Std.int(~), ~, ~, ~);"
+		help="Draws/Fills a star to the screen."
+		type="action"
+		color="cyan"
+		returns="void">
+		<fields>
+			<dropdown order="0">
+				<choices>
+					<c text="draw" code="false"/>
+					<c text="fill" code="true"/>
+				</choices>				
+			</dropdown>
+			<number order="1"/>
+			<number order="2"/>
+			<number order="3"/>
+			<number order="4"/>
+			<number order="5"/>
+			<number order="6"/>
+		</fields>
+	</block>
+	
+	<block	tag="draw-rect-ellipse"
+		spec="%1 %0 at center: ( x: %2 y: %3 ) with ( w: %4 h: %5 angle: %6 )"
+		code="~(g, ~, ~, ~, ~, ~, ~);"
+		help="Draws/Fills a rectangle/ellipse to the screen."
+		type="action"
+		color="cyan"
+		returns="void">
+		<fields>
+			<dropdown order="0">
+				<choices>
+					<c text="rectangle" code="DrawRotRect.drawRotatedRect"/>
+					<c text="ellipse" code="DrawCircles.drawEllipse"/>
+				</choices>				
+			</dropdown>
+			<dropdown order="1">
+				<choices>
+					<c text="draw" code="false"/>
+					<c text="fill" code="true"/>
+				</choices>				
+			</dropdown>
+			<number order="2"/>
+			<number order="3"/>
+			<number order="4"/>
+			<number order="5"/>
+			<number order="6"/>
+		</fields>
+	</block>
+	
+	<block	tag="draw-ellipse"
+		spec="%0 ellipse at center: ( x: %1 y: %2 ) with ( w: %3 h: %4 )"
+		code="DrawCircles.drawOrthoEllipse(g, ~, ~, ~, ~, ~);"
+		help="Draws/Fills a rectangle/ellipse to the screen."
+		type="action"
+		color="cyan"
+		returns="void">
+		<fields>
+			<dropdown order="0">
+				<choices>
+					<c text="draw" code="false"/>
+					<c text="fill" code="true"/>
+				</choices>				
+			</dropdown>
+			<number order="1"/>
+			<number order="2"/>
+			<number order="3"/>
+			<number order="4"/>
+		</fields>
+	</block>
+
+	<block	tag="drawRing"
+		spec="%0 ring at center: ( x: %1 y: %2 ) with radii: %3 %4"
+		code="DrawCircles.drawRing(g, ~, ~, ~, 0, 360, ~, ~);"
+		help="Draws/Fills a ring to the screen."
+		type="action"
+		color="cyan"
+		returns="void">
+		<fields>
+			<dropdown order="0">
+				<choices>
+					<c text="draw" code="false"/>
+					<c text="fill" code="true"/>
+				</choices>				
+			</dropdown>
+			<number order="1"/>
+			<number order="2"/>
+			<number order="3"/>
+			<number order="4"/>
+		</fields>
+	</block>
+
+	<block	tag="drawRingPiece"
+		spec="%0 ring piece at center: ( x: %1 y: %2 ) with ( start: %3 end: %4 radii: %5 %6 )"
+		code="DrawCircles.drawRing(g, ~, ~, ~, ~, ~, ~, ~);"
+		help="Draws/Fills a part of a ring to the screen."
+		type="action"
+		color="cyan"
+		returns="void">
+		<fields>
+			<dropdown order="0">
+				<choices>
+					<c text="draw" code="false"/>
+					<c text="fill" code="true"/>
+				</choices>				
+			</dropdown>
+			<number order="1"/>
+			<number order="2"/>
+			<number order="3"/>
+			<number order="4"/>
+			<number order="5"/>
+			<number order="6"/>
+		</fields>
+	</block>
+
+	<block	tag="drawWedge"
+		spec="%0 %1 at center: ( x: %2 y: %3 ) with ( radius: %6 start: %4 end: %5 )"
+		code="DrawCircles.drawWedge(g, ~, ~, ~, ~, ~, ~, ~);"
+		help="Draws/Fills a wedge/chord to the screen."
+		type="action"
+		color="cyan"
+		returns="void">
+		<fields>
+			<dropdown order="0">
+				<choices>
+					<c text="draw" code="false"/>
+					<c text="fill" code="true"/>
+				</choices>				
+			</dropdown>
+			<dropdown order="1">
+				<choices>
+					<c text="wedge" code="true"/>
+					<c text="chord" code="false"/>
+				</choices>				
+			</dropdown>
+			<number order="2"/>
+			<number order="3"/>
+			<number order="4"/>
+			<number order="5"/>
+			<number order="6"/>
+		</fields>
+	</block>
+
+	<block	tag="draw-add-arc"
+		spec="%0 arc at center: ( x: %1 y: %2 ) with ( radius: %5 start: %3 end: %4 )"
+		code="DrawCircles.~Arc(g, ~, ~, ~, ~, ~);"
+		help="Draws an arc, or adds one to a polygon."
+		type="action"
+		color="cyan"
+		returns="void">
+		<fields>
+			<dropdown order="0">
+				<choices>
+					<c text="draw" code="draw"/>
+					<c text="add to poly" code="add"/>
+				</choices>				
+			</dropdown>
+			<number order="1"/>
+			<number order="2"/>
+			<number order="3"/>
+			<number order="4"/>
+			<number order="5"/>
+		</fields>
+	</block>
+
+	<block	tag="drawLineAtAngle"
+		spec="draw line starting at: ( x: %0 y: %1 ) with ( angle: %2 length: %3 )"
+		code="DrawRotLine.drawLine(g, ~, ~, ~, ~);"
+		help="Draws a line with the specified angle and length."
+		type="action"
+		color="cyan"
+		returns="void">
+		<fields>
+			<number order="0"/>
+			<number order="1"/>
+			<number order="2"/>
+			<number order="3"/>
+		</fields>
+	</block>
+
+	<block	tag="getCoordinate"
+		spec="get end %0 of line with ( start: %1 angle: %2 length: %3 )"
+		code="DrawRotLine.getCoordinate(~, ~, ~, ~)"
+		help="Get an x/y coordinate of the endpoint of a line with the specified start, angle and length."
+		type="normal"
+		color="lime"
+		returns="number">
+		<fields>
+			<dropdown order="0">
+				<choices>
+					<c text="x" code="true"/>
+					<c text="y" code="false"/>
+				</choices>				
+			</dropdown>
+			<number order="1"/>
+			<number order="2"/>
+			<number order="3"/>
+		</fields>
+	</block>
+
+	<block	tag="draw-text-aligned"
+		spec="draw %1 aligned text %0 at ( x: %2 y: %3 )"
+		code="DrawText.drawText(g, ~, ~, ~, ~);"
+		help="Draws text to the screen."
+		type="action"
+		color="cyan"
+		returns="void">
+		<fields>
+			<anything order="0"/>
+			<dropdown order="1">
+				<choices>
+					<c text="left" code="&quot;l&quot;"/>
+					<c text="center" code="&quot;c&quot;"/>
+					<c text="right" code="&quot;r&quot;"/>
+				</choices>				
+			</dropdown>
+			<number order="2"/>
+			<number order="3"/>
+		</fields>
+	</block>
+
+	<block	tag="getDrawingValue"
+		spec="current %0"
+		code="g.~"
+		help="Gets a current drawing value."
+		type="normal"
+		color="cyan"
+		returns="anything">
+		<fields>
+			<dropdown order="0">
+				<choices>
+					<c text="color" code="fillColor"/>
+					<c text="stroke color" code="strokeColor"/>
+					<c text="stroke width" code="strokeSize"/>
+					<c text="opacity" code="alpha * 100"/>
+					<c text="font" code="font"/>
+					<c text="x of pen" code="x"/>
+					<c text="y of pen" code="y"/>
+				</choices>				
+			</dropdown>
+		</fields>
+	</block>
+
+	<block	tag="set-font-spacing"
+		spec="set spacing to %1 for %0 [i:font]"
+		code="~.setLetterSpacing(~);"
+		help="Sets the spacing (distance between letters) for a font."
+		type="action"
+		color="cyan"
+		returns="void">
+		<fields>
+			<font order="0"/>
+			<number order="1"/>
+		</fields>
+	</block>
+
+	<block	tag="get-font-spacing"
+		spec="get spacing of %0 [i:font]"
+		code="~.letterSpacing"
+		help="Gets the spacing (distance between letters) of a font."
+		type="normal"
+		color="cyan"
+		returns="number">
+		<fields>
+			<font order="0"/>
+		</fields>
+	</block>
+
+	<block	tag="choose-color"
+		spec="%0"
+		code="~"
+		help="Choose a color."
+		type="normal"
+		color="cyan"
+		returns="color">
+		<fields>
+			<color order="0"/>
+		</fields>
+	</block>
+
+	<block	tag="choose-font"
+		spec="%0"
+		code="~"
+		help="Choose a font."
+		type="normal"
+		color="cyan"
+		returns="font">
+		<fields>
+			<font order="0"/>
+		</fields>
+	</block>
+</palette>
