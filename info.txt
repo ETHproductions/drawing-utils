@@ -1,7 +1,6 @@
-name=Drawing Utilities
+name=Drawing Utilities v2
 description=Draw arcs and wedges, polygons and stars, rotated rectangles, and much more!
-
 author=ETHproductions
 website=http://community.stencyl.com/index.php/topic,35352.0.html
-version=1.3.2
+version=2.0
 compatibility=all
