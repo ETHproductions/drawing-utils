@@ -6,7 +6,7 @@
 	
 	<block	tag="drawRotatedRect"
 		spec="%0 rectangle at center: ( x: %1 y: %2 ) with ( w: %3 h: %4 angle: %5 )"
-		code="DrawRotRect.drawRotatedRect(g, ~, ~, ~, ~, ~, ~);"
+		code="DrawingUtils.drawRotatedRect(g, ~, ~, ~, ~, ~, ~);"
 		help="Draws/Fills a rotated rectangle to the screen."
 		type="action"
 		color="cyan"
@@ -29,7 +29,7 @@
 
 	<block	tag="drawEllipse"
 		spec="%0 ellipse at center: ( x: %1 y: %2 ) with ( w: %3 h: %4 angle: %5 )"
-		code="DrawCircles.drawEllipse(g, ~, ~, ~, ~, ~, ~);"
+		code="DrawingUtils.drawEllipse(g, ~, ~, ~, ~, ~, ~);"
 		help="Draws/Fills an ellipse to the screen."
 		type="action"
 		color="cyan"
@@ -52,7 +52,7 @@
 	
 	<block	tag="drawArc"
 		spec="draw arc at center: ( x: %0 y: %1 ) with ( radius: %4 start: %2 end: %3 )"
-		code="DrawCircles.drawArc(g, ~, ~, ~, ~, ~);"
+		code="DrawingUtils.drawArc(g, ~, ~, ~, ~, ~);"
 		help="Draws an arc to the screen."
 		type="action"
 		color="cyan"
@@ -69,7 +69,7 @@
 	
 	<block	tag="addArcToPolygon"
 		spec="add arc at center: ( x: %0 y: %1 ) with ( radius: %4 start: %2 end: %3 ) to polygon"
-		code="DrawCircles.addArc(g, ~, ~, ~, ~, ~);"
+		code="DrawingUtils.addArc(g, ~, ~, ~, ~, ~);"
 		help="Adds an arc to a polygon."
 		type="action"
 		color="cyan"
@@ -88,7 +88,7 @@
 
 	<block	tag="drawPolygon"
 		spec="%0 %3 at center: ( x: %1 y: %2 ) with ( radius: %4 angle: %5 )"
-		code="DrawPolygons.drawPolygon(g, ~, ~, ~, Std.int(~), ~, ~);"
+		code="DrawingUtils.drawPolygon(g, ~, ~, ~, Std.int(~), ~, ~);"
 		help="Draws/Fills a shape to the screen."
 		type="action"
 		color="cyan"
@@ -122,7 +122,7 @@
 
 	<block	tag="drawPolygonRotated"
 		spec="%0 polygon at center: ( x: %1 y: %2 ) with ( sides: %3 radius: %4 angle: %5 )"
-		code="DrawPolygons.drawPolygon(g, ~, ~, ~, Std.int(~), ~, ~);"
+		code="DrawingUtils.drawPolygon(g, ~, ~, ~, Std.int(~), ~, ~);"
 		help="Draws/Fills a rotated shape to the screen."
 		type="action"
 		color="cyan"
@@ -145,7 +145,7 @@
 
 	<block	tag="drawStar"
 		spec="%0 star at center: ( x: %1 y: %2 ) with ( spokes: %3 radii: %4 %5 angle: %6 )"
-		code="DrawPolygons.drawStar(g, ~, ~, ~, Std.int(~), ~, ~, ~);"
+		code="DrawingUtils.drawStar(g, ~, ~, ~, Std.int(~), ~, ~, ~);"
 		help="Draws/Fills a star to the screen."
 		type="action"
 		color="cyan"
@@ -168,7 +168,7 @@
 	
 	<block	tag="draw-rect-ellipse"
 		spec="%1 %0 at center: ( x: %2 y: %3 ) with ( w: %4 h: %5 angle: %6 )"
-		code="~(g, ~, ~, ~, ~, ~, ~);"
+		code="DrawingUtils.draw~(g, ~, ~, ~, ~, ~, ~);"
 		help="Draws/Fills a rectangle/ellipse to the screen."
 		type="action"
 		color="cyan"
@@ -176,8 +176,8 @@
 		<fields>
 			<dropdown order="0">
 				<choices>
-					<c text="rectangle" code="DrawRotRect.drawRotatedRect"/>
-					<c text="ellipse" code="DrawCircles.drawEllipse"/>
+					<c text="rectangle" code="RotatedRect"/>
+					<c text="ellipse" code="Ellipse"/>
 				</choices>				
 			</dropdown>
 			<dropdown order="1">
@@ -196,7 +196,7 @@
 	
 	<block	tag="draw-ellipse"
 		spec="%0 ellipse at center: ( x: %1 y: %2 ) with ( w: %3 h: %4 )"
-		code="DrawCircles.drawOrthoEllipse(g, ~, ~, ~, ~, ~);"
+		code="DrawingUtils.drawOrthoEllipse(g, ~, ~, ~, ~, ~);"
 		help="Draws/Fills a rectangle/ellipse to the screen."
 		type="action"
 		color="cyan"
@@ -217,7 +217,7 @@
 
 	<block	tag="drawRing"
 		spec="%0 ring at center: ( x: %1 y: %2 ) with radii: %3 %4"
-		code="DrawCircles.drawRing(g, ~, ~, ~, 0, 360, ~, ~);"
+		code="DrawingUtils.drawRing(g, ~, ~, ~, 0, 360, ~, ~);"
 		help="Draws/Fills a ring to the screen."
 		type="action"
 		color="cyan"
@@ -238,7 +238,7 @@
 
 	<block	tag="drawRingPiece"
 		spec="%0 ring piece at center: ( x: %1 y: %2 ) with ( start: %3 end: %4 radii: %5 %6 )"
-		code="DrawCircles.drawRing(g, ~, ~, ~, ~, ~, ~, ~);"
+		code="DrawingUtils.drawRing(g, ~, ~, ~, ~, ~, ~, ~);"
 		help="Draws/Fills a part of a ring to the screen."
 		type="action"
 		color="cyan"
@@ -261,7 +261,7 @@
 
 	<block	tag="drawWedge"
 		spec="%0 %1 at center: ( x: %2 y: %3 ) with ( radius: %6 start: %4 end: %5 )"
-		code="DrawCircles.drawWedge(g, ~, ~, ~, ~, ~, ~, ~);"
+		code="DrawingUtils.drawWedge(g, ~, ~, ~, ~, ~, ~, ~);"
 		help="Draws/Fills a wedge/chord to the screen."
 		type="action"
 		color="cyan"
@@ -289,7 +289,7 @@
 
 	<block	tag="draw-add-arc"
 		spec="%0 arc at center: ( x: %1 y: %2 ) with ( radius: %5 start: %3 end: %4 )"
-		code="DrawCircles.~Arc(g, ~, ~, ~, ~, ~);"
+		code="DrawingUtils.~Arc(g, ~, ~, ~, ~, ~);"
 		help="Draws an arc, or adds one to a polygon."
 		type="action"
 		color="cyan"
@@ -311,7 +311,7 @@
 
 	<block	tag="drawLineAtAngle"
 		spec="draw line starting at: ( x: %0 y: %1 ) with ( angle: %2 length: %3 )"
-		code="DrawRotLine.drawLine(g, ~, ~, ~, ~);"
+		code="DrawingUtils.drawLine(g, ~, ~, ~, ~);"
 		help="Draws a line with the specified angle and length."
 		type="action"
 		color="cyan"
@@ -326,7 +326,7 @@
 
 	<block	tag="getCoordinate"
 		spec="get end %0 of line with ( start: %1 angle: %2 length: %3 )"
-		code="DrawRotLine.getCoordinate(~, ~, ~, ~)"
+		code="DrawingUtils.get~Coordinate(~, ~, ~)"
 		help="Get an x/y coordinate of the endpoint of a line with the specified start, angle and length."
 		type="normal"
 		color="lime"
@@ -334,8 +334,8 @@
 		<fields>
 			<dropdown order="0">
 				<choices>
-					<c text="x" code="true"/>
-					<c text="y" code="false"/>
+					<c text="x" code="X"/>
+					<c text="y" code="Y"/>
 				</choices>				
 			</dropdown>
 			<number order="1"/>
@@ -346,7 +346,7 @@
 
 	<block	tag="draw-text-aligned"
 		spec="draw %1 aligned text %0 at ( x: %2 y: %3 )"
-		code="DrawText.drawText(g, ~, ~, ~, ~);"
+		code="DrawingUtils.drawText(g, ~, ~, ~, ~);"
 		help="Draws text to the screen."
 		type="action"
 		color="cyan"
