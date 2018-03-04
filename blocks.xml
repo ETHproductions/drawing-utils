@@ -416,6 +416,7 @@
 		help="Sets the spacing (distance between letters) for a font."
 		type="action"
 		color="cyan"
+		hidden="true"
 		returns="void">
 		<fields>
 			<font order="0"/>

@@ -201,12 +201,14 @@ class DrawingUtils {
 	}
 	
 	public static function drawText(g:G, text:Dynamic, align:String, x:Float, y:Float) {
+		var t:String = "" + text;
+		var width:Float = g.font.font.getTextWidth(t, g.font.letterSpacing) / Engine.SCALE;
 		if (align == "r") {
-			g.drawString("" + text, x - (g.font.font.getTextWidth("" + text) / Engine.SCALE), y);
+			g.drawString(t, x - width, y);
 		} else if (align == "c") {
-			g.drawString("" + text, x - (g.font.font.getTextWidth("" + text) / Engine.SCALE / 2), y);
+			g.drawString(t, x - width/2, y);
 		} else {
-			g.drawString("" + text, x, y);
+			g.drawString(t, x, y);
 		}
 	}
 }
