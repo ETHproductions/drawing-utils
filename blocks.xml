@@ -309,6 +309,29 @@
 		</fields>
 	</block>
 
+	<block	tag="draw-bezier"
+		spec="draw bezier curve from ( x: %0 y: %1 ) to ( x: %2 y: %3 ) with %4 ( x: %5 y: %6 )"
+		code="DrawingUtils.drawBezierCurve(g, ~, ~, ~, ~, ~, ~, ~);"
+		help="Draws/Fills a part of a ring to the screen."
+		type="action"
+		color="cyan"
+		returns="void">
+		<fields>
+			<number order="0"/>
+			<number order="1"/>
+			<number order="2"/>
+			<number order="3"/>
+			<dropdown order="4">
+				<choices>
+					<c text="midpoint" code="true"/>
+					<c text="control" code="false"/>
+				</choices>				
+			</dropdown>
+			<number order="5"/>
+			<number order="6"/>
+		</fields>
+	</block>
+
 	<block	tag="drawLineAtAngle"
 		spec="draw line starting at: ( x: %0 y: %1 ) with ( angle: %2 length: %3 )"
 		code="DrawingUtils.drawLine(g, ~, ~, ~, ~);"

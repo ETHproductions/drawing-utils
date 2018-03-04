@@ -152,6 +152,29 @@ class DrawingUtils {
 		}
 		g.endDrawingPolygon();
 	}
+	
+	public static function drawBezierCurve(g:G, x1:Float, y1:Float, x2:Float, y2:Float, adjust:Bool, xc:Float, yc:Float):Void {
+		if (adjust) {
+			xc = 2 * xc - (x1 + x2) / 2;
+			yc = 2 * yc - (y1 + y2) / 2;
+		}
+		var points:Int = Std.int(Math.round((Utils.distance(x1, y1, xc, yc) + Utils.distance(x2, y2, xc, yc)) * 0.05) + 10);
+		var tempx1:Float, tempy1:Float;
+		var tempx2:Float = x1;
+		var tempy2:Float = y1;
+		var t0:Float = 0, t1:Float = 1;
+		var i:Int = 0;
+		while (i < points) {
+			i++;
+			t0 = i / points;
+			t1 = 1 - t0;
+			tempx1 = tempx2;
+			tempy1 = tempy2;
+			tempx2 = t1 * ((xc * t0) + (x1 * t1)) + t0 * ((x2 * t0) + (xc * t1));
+			tempy2 = t1 * ((yc * t0) + (y1 * t1)) + t0 * ((y2 * t0) + (yc * t1));
+			g.drawLine(tempx1, tempy1, tempx2, tempy2);
+		}
+	}
 
 	public static function drawOrthoRect(g:G, fill:Bool, x:Float, y:Float, w:Float, h:Float) {
 		w = Math.abs(w);
